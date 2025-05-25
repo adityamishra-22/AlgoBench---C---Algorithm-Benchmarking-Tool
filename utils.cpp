@@ -26,3 +26,17 @@ void logToFile(const std::string& message, const std::string& filename) {
         file.close();
     }
 }
+
+void printGraph(const std::unordered_map<int, std::vector<int>>& graph) {
+    std::cout << "Graph Adjacency List:" << std::endl;
+    for (const auto& pair : graph) {
+    int node = pair.first;
+    const std::vector<int>& neighbors = pair.second;
+
+    std::cout << node << ": ";
+    for (int n : neighbors)
+        std::cout << n << " ";
+    std::cout << std::endl;
+}
+
+}

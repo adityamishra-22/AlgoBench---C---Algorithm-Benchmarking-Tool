@@ -1,17 +1,17 @@
 # AlgoBench – C++ Algorithm Benchmarking Tool
 
-**AlgoBench** is a modular C++ benchmarking tool for analyzing the performance of core algorithms in a clean, production-style format. It leverages the C++ STL and `chrono` library to measure execution time with precision, simulating real-world performance evaluation in system-level roles.
+**AlgoBench** is a modular C++ benchmarking tool that evaluates the runtime performance of core algorithms. It features a clean command-line interface and uses STL + `chrono` to simulate production-style performance profiling.
 
 ---
 
 ## 🚀 Features
 
 - 🔁 **Sorting Algorithms**: Merge Sort, Quick Sort
-- 🔍 **Search Utility**: Binary Search (first occurrence)
-- 🔗 **Graph Traversals**: Depth-First Search (DFS), Breadth-First Search (BFS)
-- ⏱ **Benchmarking**: Uses `chrono` for accurate microsecond-level timing
-- 📄 **Logging**: Outputs benchmark summaries to `benchmark_log.txt`
-- 🧱 **Modular Design**: Clean header/source separation for real-world readability
+- 🔍 **Search**: Binary Search (first occurrence)
+- 🔗 **Graph Traversals**: DFS, BFS using adjacency list
+- ⏱ **Benchmarking**: Uses `chrono` for microsecond-level timing
+- 📄 **Logging**: Logs benchmarks to `benchmark_log.txt`
+- 🧱 **Modular Design**: Clean `.cpp/.hpp` separation
 
 ---
 
@@ -20,16 +20,16 @@
 ```
 .
 ├── main.cpp          # Entry point and driver
-├── sorting.cpp/hpp   # Merge Sort, Quick Sort logic
-├── graph.cpp/hpp     # DFS and BFS implementations
-├── utils.cpp/hpp     # Binary search, vector printer, and logger
-├── benchmark_log.txt # Output file (generated after execution)
-├── README.md         # Project documentation
+├── sorting.cpp/hpp   # Merge Sort, Quick Sort
+├── graph.cpp/hpp     # DFS, BFS
+├── utils.cpp/hpp     # Binary Search, print/logging utilities
+├── benchmark_log.txt # Output log (auto-generated)
+├── README.md         # This file
 ```
 
 ---
 
-## 📦 How to Compile & Run
+## 📦 Compile & Run
 
 ```bash
 g++ main.cpp sorting.cpp graph.cpp utils.cpp -o algobench
@@ -41,43 +41,44 @@ g++ main.cpp sorting.cpp graph.cpp utils.cpp -o algobench
 ## 🧪 Sample Output
 
 ```
-Original array:
+Original array (Merge Sort):
 5 2 9 1 5 6
-
 Sorted with Merge Sort:
 1 2 5 5 6 9
-Merge Sort Time: 10 microseconds
+Merge Sort Time: 4 microseconds
 
+Original array (Quick Sort):
+10 7 8 9 1 5
 Sorted with Quick Sort:
 1 5 7 8 9 10
-Quick Sort Time: 8 microseconds
+Quick Sort Time: 3 microseconds
 
-First occurrence of 5 is at index: 4
+Binary Search input array:
+1 2 3 4 5 5 6
+Binary Search (first occurrence of 5): Index 4
+Binary Search Time: 1 microsecond
 
+Graph Traversal Input (Adjacency List):
+0: 1 2
+1: 2
+2: 0 3
+3: 3
 DFS from node 2: 2 3 0 1
+DFS Time: 2 microseconds
 BFS from node 2: 2 0 3 1
-```
-
----
-
-## 📈 Log Output
-
-Benchmark results are also saved to:
-
-```
-benchmark_log.txt
+BFS Time: 3 microseconds
 ```
 
 ---
 
 ## 📚 Use Case
 
-AlgoBench is ideal for students, interviewees, or engineers preparing for algorithm-intensive roles, especially where performance and code structure matter — such as systems programming, backend optimization, or C++/Rust-based engineering teams.
+Perfect for algorithm enthusiasts, students preparing for systems interviews, or engineers building performance-sensitive applications in C++.
 
 ---
 
 ## 🔧 Future Enhancements
 
-- Add Dijkstra's algorithm for graph benchmarking
-- CLI argument parsing to benchmark selected algorithms
-- Integration with file input/output for larger test cases
+- Add Dijkstra’s Algorithm benchmarking
+- Command-line selection for algorithms
+- File-based input/output for large data handling
